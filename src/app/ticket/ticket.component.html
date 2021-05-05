@@ -1,0 +1,81 @@
+<div class="d-flex justify-content-between align-items-center">
+<table class="bg-white table-sm mx-2 mb-2 card">
+  <div class="card-body">
+    <tr>
+      <th >ID</th>
+      <td>{{ticket.id}}</td>
+    </tr>
+    <tr>
+      <th>Topic</th>
+      <td>{{ticket.topic}}</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <td>{{ticket.status}}</td>
+    </tr>
+    <tr>
+      <th>Last Update</th>
+      <td class="text-secondary">ticket.notes.last.date</td>
+    </tr>
+    <tr>
+      <th>Date received</th>
+      <td>{{ticket.dateReceived | date}}</td>
+    </tr>
+    <tr>
+      <th>Deadline</th>
+      <td>{{ticket.deadline | date}}</td>
+    </tr>
+    <tr>
+      <th>Customer owner</th>
+      <td class="text-secondary">ticket.user.name</td>
+    </tr>
+    <tr>
+       <th>Customer ID</th>
+       <td class="text-secondary">ticket.customer.id</td>
+    </tr>
+    <tr>
+       <th>Urgency</th>
+       <td class="text-secondary">ng if urgent</td>
+    </tr>
+  </div>
+  </table>
+
+  <form> 
+    <div class="d-flex align-items-center flex-column mt-3">
+      <div class="form-group">
+        <label for="notes">Add a note:</label>
+        <textarea class="form-control" id="notes" cols="75" rows="4"></textarea>
+        Status: 
+        <select class="form-control">
+          <option>Solved</option>
+          <option>Unsolved</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-info" value="Submit">
+      </div>
+     
+      <!-- <label for="date">Date</label>
+      <select class="form-control mb-2" id="source" [formControl]="source" required="required">
+        <option [ngValue]="null">Select Source</option>
+        <option *ngFor="let source of sources | keyvalue" [ngValue]="source.value">{{source.value}}</option>
+      </select> -->
+   
+    </div>
+  </form>
+ 
+</div>
+
+<div class="notes mt-2">
+  //let note of ticket.notes
+  <div class="card">
+      <div class="card-body">
+      <!-- Note created , current status-->
+      <p class="text-secondary">May 3 2021, 16:00 || status: unsolved</p>
+      <!-- Content -->
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti eos, vero dolores cum perspiciatis.</p>
+      <!-- Author  -->
+      <small class="text-secondary text-right w-100">Queen Elizabeth</small>
+    </div>
+  </div>
+</div>
