@@ -4,7 +4,7 @@
     <small><a href="#" class="text-secondary"> See Unsolved »</a></small>
     <small><a href="#" class="text-secondary"> See Solved » </a></small>
     <small><a href="#" class="text-secondary"> See all » </a></small><br>
-    <button class="btn btn-info" routerLink="/karolina/new_ticket/-1">Create a ticket</button>
+    <button class="btn btn-info" routerLink="../new_ticket/">Create a ticket</button>
   </div>
     <!-- <div class="alert alert-success my-4" *ngIf="message">{{message}}</div> -->
     <!-- <div class="alert alert-success" *ngFor = "let data of datas">{{data[message]}}></div> -->
@@ -49,7 +49,7 @@
         </tr> -->
         <tbody *ngFor="let ticket of tickets">
         <tr style="cursor: pointer;" (click)="lookUpTicket(ticket.id)" >
-          <td >{{ticket.id}}</td>
+          <td>{{ticket.id | number}}</td>
           <td>{{ticket.topic}}</td>
           <td>{{ticket.status}}</td>
           <td>{{ticket.deadline | date}}</td>

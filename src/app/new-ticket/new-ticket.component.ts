@@ -25,7 +25,7 @@ export class NewTicketComponent implements OnInit {
   topics = topics;
   sources = sources
 
-  id: number;
+  user_id: '';
   ticket: Ticket;
   form: FormGroup;
   preferredContactMethod: FormControl
@@ -47,19 +47,16 @@ export class NewTicketComponent implements OnInit {
   }
     
   ngOnInit(){
-    this.id = this.route.snapshot.params['id'];
-    this.ticket = new Ticket(this.id, new Date(), new Date(), this.topic.value ,'b', 'c', this.status);
-   
+    this.user_id = this.route.snapshot.params['user_id'];
+    this.ticket = new Ticket(-1, new Date(), new Date(), this.topic.value ,'b', 'c', this.status);
   }
 
-
   createTicket(){
-    this.ticketService.saveTicket('karolina', this.ticket).subscribe(
+    this.ticketService.saveTicket(`${this.user_id}`, this.ticket).subscribe(
       data => {
         console.log(data)
         console.log(this.ticket.id)
-        this.router.navigate(['karolina','dashboard'])
-
+        this.router.navigate([`${this.user_id}`,'dashboard'])
       }
     )
   }

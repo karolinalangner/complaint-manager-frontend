@@ -11,15 +11,15 @@ export class TicketDataService {
   constructor(private http: HttpClient) { }
 
   retrieveAllTickets(username){
-    return this.http.get<Ticket[]>(`${API_URL}/${username}/tickets`);
+    return this.http.get<Ticket[]>(`${API_URL}/jpa/${username}/tickets`);
   }
 
   retrieveOneTicket(username, id){
-    return this.http.get<Ticket>(`${API_URL}/${username}/tickets/${id}`);
+    return this.http.get<Ticket>(`${API_URL}/jpa/${username}/tickets/${id}`);
   }
 
   saveTicket(username, ticket){
-    return this.http.post(`${API_URL}/${username}/tickets`, ticket);
+    return this.http.post(`${API_URL}/jpa/${username}/tickets`, ticket);
   }
 
 }
