@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TicketDataService } from '../service/data/ticket-data.service';
+import { TicketDataService } from '../../service/data/ticket-data.service';
+
+export class Note {
+  constructor(public id: number, 
+              public content: string,
+              public date: Date,
+              ticket_id: number
+              ) { }
+}  
 
 export class Ticket {
     constructor(public id: number, 
@@ -20,18 +28,19 @@ export class Ticket {
 })
 export class TicketsComponent implements OnInit {
 tickets: Ticket[]
-
+username: string
   constructor(private ticketService: TicketDataService, 
               private router: Router, 
               private route:ActivatedRoute
               ) { }
 
   ngOnInit() {
+    this.username = this.route.snapshot.params['user_id'];
     this.refreshTickets();
   }
 
   refreshTickets(){
-    this.ticketService.retrieveAllTickets('karolina').subscribe(
+    this.ticketService.retrieveAllTickets(this.username).subscribe(
       response => {
         console.log(response);
         this.tickets = response;
@@ -41,7 +50,7 @@ tickets: Ticket[]
 
   lookUpTicket(id){
     console.log("look up works")
-    this.router.navigate(['karolina/tickets', id])
+    this.router.navigate([`${this.username}/tickets`, id])
   }
 
 }

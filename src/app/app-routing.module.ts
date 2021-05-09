@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
-import { NewTicketComponent } from './new-ticket/new-ticket.component';
+import { NewTicketComponent } from './tickets_components/new-ticket/new-ticket.component';
 import { RouteGuardService } from './service/route-gard.service';
-import { TicketComponent } from './ticket/ticket.component';
-import { TicketsComponent } from './tickets/tickets.component';
+import { TicketComponent } from './tickets_components/ticket/ticket.component';
+import { TicketsComponent } from './tickets_components/tickets/tickets.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},

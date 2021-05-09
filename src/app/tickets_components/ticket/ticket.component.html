@@ -15,7 +15,7 @@
     </tr>
     <tr>
       <th>Last Update</th>
-      <td class="text-secondary">ticket.notes.last.date</td>
+      <td class="text-secondary">{{ticket.notes.slice(-1)[0].date | date}}</td>
     </tr>
     <tr>
       <th>Date received</th>
@@ -67,13 +67,13 @@
 </div>
 
 <div class="notes mt-2">
-  //let note of ticket.notes
-  <div class="card">
-      <div class="card-body">
+
+  <div *ngFor="let note of ticket.notes" class="card">
+      <div  class="card-body">
       <!-- Note created , current status-->
-      <p class="text-secondary">May 3 2021, 16:00 || status: unsolved</p>
+      <p class="text-secondary">{{note.date | date}}</p>
       <!-- Content -->
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti eos, vero dolores cum perspiciatis.</p>
+      <p>{{note.content}}</p>
       <!-- Author  -->
       <small class="text-secondary text-right w-100">Queen Elizabeth</small>
     </div>

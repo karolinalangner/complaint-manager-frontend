@@ -4,16 +4,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
-import { TicketsComponent } from './tickets/tickets.component';
+import { TicketsComponent } from './tickets_components/tickets/tickets.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TicketComponent } from './ticket/ticket.component';
+import { TicketComponent } from './tickets_components/ticket/ticket.component';
 import { DashboardReportComponent } from './dashboard-report/dashboard-report.component';
 import { HttpIntercepterAuthServiceService } from './service/http/http-intercepter-auth-service.service';
 import { ErrorComponent } from './error/error.component';
-import { NewTicketComponent } from './new-ticket/new-ticket.component';
+import { NewTicketComponent } from './tickets_components/new-ticket/new-ticket.component';
 import { LogoutComponent } from './logout/logout.component';
+import { UnacceptedTicketsComponent } from './tickets_components/unaccepted-tickets/unaccepted-tickets.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LogoutComponent } from './logout/logout.component';
     DashboardReportComponent,
     ErrorComponent,
     NewTicketComponent,
-    LogoutComponent
+    LogoutComponent,
+    UnacceptedTicketsComponent
   ],
   imports: [
     BrowserModule,

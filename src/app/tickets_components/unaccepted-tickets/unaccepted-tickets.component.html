@@ -1,0 +1,35 @@
+<div class="ticket-list card-body">
+  <div class="card-title">
+    Tickets needing accepting!
+    <table class="table my-4 table-hover">
+      <thead>
+        <tr>
+          <th>ID</th> 
+          <th>Topic</th>
+          <th>Status</th>
+          <th>Last Update</th>
+          <th>Date received</th>
+          <th>Deadline</th>
+          <th>Customer owner</th>
+          <th>Customer ID</th>
+          <th>Urgency</th>
+        </tr>
+      </thead>
+
+        <tbody *ngFor="let ticket of tickets">
+        <tr style="cursor: pointer;" (click)="lookUpTicket(ticket.id)" >
+          <td>{{ticket.id | number}}</td>
+          <td>{{ticket.topic}}</td>
+          <td>{{ticket.status}}</td>
+          <td>{{ticket.deadline | date}}</td>
+          <td class="text-danger">{{ticket.dateReceived | date}}</td>
+          <td>May 2</td>
+          <td>Karolina Langner</td>
+          <td>#12343</td>
+          <td>🔴</td>
+      </tr>
+      
+      </tbody>
+    </table>
+  </div>
+</div>

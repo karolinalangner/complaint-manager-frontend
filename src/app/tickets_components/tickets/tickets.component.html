@@ -1,6 +1,6 @@
 <div class="ticket-list card-body">
   <div class="card-title">
-    <a routerLink="/karolina/tickets"><strong>Tickets</strong></a>
+    <a routerLink="/{{username}}/tickets"><strong>Tickets</strong></a>
     <small><a href="#" class="text-secondary"> See Unsolved »</a></small>
     <small><a href="#" class="text-secondary"> See Solved » </a></small>
     <small><a href="#" class="text-secondary"> See all » </a></small><br>
@@ -9,7 +9,7 @@
     <!-- <div class="alert alert-success my-4" *ngIf="message">{{message}}</div> -->
     <!-- <div class="alert alert-success" *ngFor = "let data of datas">{{data[message]}}></div> -->
     <!-- <table *ngIf="haveTickets() else elseBlock" class="table my-4"> -->
-    <table class="table my-4 table-hover">
+    <table class="table my-4 table-hover ">
       <thead>
         <tr>
           <th>ID</th> 

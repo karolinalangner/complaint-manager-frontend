@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
-import { AuthenticationService } from '../service/authentication.service';
+import { AUTHENTICATED_USER, AuthenticationService } from '../service/authentication.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,14 +9,17 @@ import { AuthenticationService } from '../service/authentication.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  username: string 
 
-  constructor(private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.username = sessionStorage.getItem(AUTHENTICATED_USER)
+    console.log("from menu comp:" + this.username)
   }
 
   seeDashboard(){
-    this.router.navigate(['karolina', 'dashboard']);
+    this.router.navigate(["/dashboard"]);
   }
 
 }

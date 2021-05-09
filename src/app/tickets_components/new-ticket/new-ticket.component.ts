@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TicketDataService } from '../service/data/ticket-data.service';
-import { Ticket } from '../tickets/tickets.component';
+import { TicketDataService } from '../../service/data/ticket-data.service';
+import { Note, Ticket } from '../tickets/tickets.component';
+
 
 enum ContactMethods {
   Email = 'Email',
@@ -27,6 +28,7 @@ export class NewTicketComponent implements OnInit {
 
   user_id: '';
   ticket: Ticket;
+  note: Note;
   form: FormGroup;
   preferredContactMethod: FormControl
   topic: FormControl
@@ -49,6 +51,8 @@ export class NewTicketComponent implements OnInit {
   ngOnInit(){
     this.user_id = this.route.snapshot.params['user_id'];
     this.ticket = new Ticket(-1, new Date(), new Date(), this.topic.value ,'b', 'c', this.status);
+    this.note = new Note(-1, '', new Date(), this.ticket.id)
+    
   }
 
   createTicket(){
@@ -56,8 +60,12 @@ export class NewTicketComponent implements OnInit {
       data => {
         console.log(data)
         console.log(this.ticket.id)
+      }
+    );
+    this.ticketService.saveNote(`${this.user_id}`, this.ticket.id, this.note).subscribe(
+      data => {
+        console.log("data from note: " +data)
         this.router.navigate([`${this.user_id}`,'dashboard'])
       }
-    )
-  }
+    )}
 }

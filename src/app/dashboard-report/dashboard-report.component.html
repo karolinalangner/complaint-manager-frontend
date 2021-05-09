@@ -4,12 +4,14 @@
       <tr>
         <th>Tickets in queue</th> 
         <th>Overdue</th>
+        <th>Received more than 1 day ago</th>
       </tr> 
     </thead>
     <tbody>
       <tr>
         <td><a routerLink="/karolina/tickets">23</a></td>
-        <td class="text-danger"><a [routerLink]="['..','tickets']" style="color: red;">3</a></td>  
+        <td class="text-danger"><a [routerLink]="['..','tickets']" style="color: red;">3</a></td>
+        <td><a routerLink="/karolina/tickets"></a></td>  
       </tr> 
     </tbody>
   </table>

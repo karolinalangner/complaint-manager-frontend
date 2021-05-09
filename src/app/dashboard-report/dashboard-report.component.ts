@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardReportComponent implements OnInit {
 
+  unaccepted: number
+  
   constructor() { }
 
   ngOnInit() {
