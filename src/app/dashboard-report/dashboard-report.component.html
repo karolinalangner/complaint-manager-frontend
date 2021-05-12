@@ -1,18 +1,32 @@
-<div class="card ">
-  <table class="table table-lg card-body ">
+<!-- <div class="card ">
+  <table class="table table-md card-text ">
     <thead>
       <tr>
-        <th>Tickets in queue</th> 
-        <th>Overdue</th>
         <th>Received more than 1 day ago</th>
+        <th>Overdue</th>
+        <th>Tickets in queue</th>
       </tr> 
     </thead>
     <tbody>
       <tr>
+        <td class="text-danger"></td>  
+        <td><a routerLink="/karolina/tickets"></a></td>
         <td><a routerLink="/karolina/tickets">23</a></td>
-        <td class="text-danger"><a [routerLink]="['..','tickets']" style="color: red;">3</a></td>
-        <td><a routerLink="/karolina/tickets"></a></td>  
       </tr> 
     </tbody>
   </table>
+</div> -->
+<div class="dashboard-cards my-2">
+  <div class="dashboard-card">
+    <p class="title">Received more<br> than 1 day ago</p>
+    <a class="text" [routerLink]="['..','tickets_pending']" style="color: red;">{{unaccepted}}</a>
+  </div>
+  <div class="dashboard-card">
+    <p class="title">Overdue</p>
+    <a class="text" [routerLink]="['..','tickets_overdue']">{{overdue}}</a>
+  </div>
+  <div class="dashboard-card">
+    <p class="title">Your queue</p>
+    <a class="text" [routerLink]="['..','tickets']">{{userQueue}}</a>
+  </div>
 </div>

@@ -6,18 +6,22 @@ export class Note {
   constructor(public id: number, 
               public content: string,
               public date: Date,
-              ticket_id: number
+              public ticket_id: number
+
               ) { }
 }  
 
 export class Ticket {
+    customer: any;
+    notes: any;
     constructor(public id: number, 
-                public deadline: Date,
                 public dateReceived: Date,
+                public deadline: Date,
                 public topic: string,
                 public source: string,
                 public prefferedContactMethod: string,
-                public status
+                public status: string,
+                public details: string
                 ) { }
   }  
 

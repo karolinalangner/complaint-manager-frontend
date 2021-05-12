@@ -1,11 +1,12 @@
-<div class="ticket-list card-body">
-  <div class="card-title">
-    <a routerLink="/{{username}}/tickets"><strong>Tickets</strong></a>
+<div class="ticket-list card-body">    
+  <h6 class="btn card-subtitle text-muted" routerLink="/{{username}}/tickets">Your Tickets</h6>
+
+  <!-- <div class="card-title">
     <small><a href="#" class="text-secondary"> See Unsolved »</a></small>
     <small><a href="#" class="text-secondary"> See Solved » </a></small>
     <small><a href="#" class="text-secondary"> See all » </a></small><br>
     <button class="btn btn-info" routerLink="../new_ticket/">Create a ticket</button>
-  </div>
+  </div> -->
     <!-- <div class="alert alert-success my-4" *ngIf="message">{{message}}</div> -->
     <!-- <div class="alert alert-success" *ngFor = "let data of datas">{{data[message]}}></div> -->
     <!-- <table *ngIf="haveTickets() else elseBlock" class="table my-4"> -->
@@ -19,45 +20,19 @@
           <th>Date received</th>
           <th>Deadline</th>
           <th>Customer owner</th>
-          <th>Customer ID</th>
-          <th>Urgency</th>
+          <th>Customer</th>
         </tr>
       </thead>
-      <!-- <tbody>
-        if a complaint is overdue - show red on top of the list -->
-        <!-- <tr>
-          <td>132</td>
-          <td>Problem with account</td>
-          <td>Accepted/Unsolved</td>
-          <td>Apr 30</td>
-          <td>Apr 30</td>
-          <td>May 2</td>
-          <td>Karolina Langner</td>
-          <td>#12343</td>
-          <td>🟢</td>
-        </tr>
-        <tr>
-          <td>133</td>
-          <td>Missing funds</td>
-          <td>Accepted/Unsolved</td>
-          <td>May 1</td>
-          <td>Apr 30</td>
-          <td>May 2</td>
-          <td>Karolina Langner</td>
-          <td>#12343</td>
-          <td>🔴</td>
-        </tr> -->
-        <tbody *ngFor="let ticket of tickets">
-        <tr style="cursor: pointer;" (click)="lookUpTicket(ticket.id)" >
-          <td>{{ticket.id | number}}</td>
-          <td>{{ticket.topic}}</td>
-          <td>{{ticket.status}}</td>
-          <td>{{ticket.deadline | date}}</td>
-          <td>{{ticket.dateReceived | date}}</td>
-          <td>May 2</td>
-          <td>Karolina Langner</td>
-          <td>#12343</td>
-          <td>🔴</td>
+      <tbody *ngFor="let ticket of tickets">
+      <tr style="cursor: pointer;" (click)="lookUpTicket(ticket.id)" >
+        <td>{{ticket.id | number}}</td>
+        <td>{{ticket.topic}}</td>
+        <td>{{ticket.status}}</td>
+        <td></td>
+        <td>{{ticket.dateReceived | date}}</td>
+        <td>{{ticket.deadline | date}}</td>
+        <td>{{ticket.username}}</td>
+        <td>{{ticket.customer.name}}</td>
        </tr>
       
       </tbody>

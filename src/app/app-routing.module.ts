@@ -7,14 +7,20 @@ import { NewTicketComponent } from './tickets_components/new-ticket/new-ticket.c
 import { RouteGuardService } from './service/route-gard.service';
 import { TicketComponent } from './tickets_components/ticket/ticket.component';
 import { TicketsComponent } from './tickets_components/tickets/tickets.component';
+import { UnacceptedTicketsComponent } from './tickets_components/unaccepted-tickets/unaccepted-tickets.component';
+import { OverdueTicketsComponent } from './tickets_components/overdue-tickets/overdue-tickets.component';
+import { FindCustomerComponent } from './find-customer/find-customer.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: ':user_id/dashboard', component: DashboardComponent},
-  {path: ':user_id/new_ticket', component: NewTicketComponent},
+  {path: ':user_id/new_ticket', component: FindCustomerComponent},
+  {path: ':user_id/new_ticket/:customer_id', component: NewTicketComponent},
   {path: ':user_id/tickets', component: TicketsComponent},
   {path: ':user_id/tickets/:id', component: TicketComponent},
+  {path: ':user_id/tickets_pending', component: UnacceptedTicketsComponent},
+  {path: ':user_id/tickets_overdue', component: OverdueTicketsComponent},
 
   {path: '**', component: ErrorComponent}
 ];

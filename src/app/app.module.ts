@@ -15,6 +15,9 @@ import { ErrorComponent } from './error/error.component';
 import { NewTicketComponent } from './tickets_components/new-ticket/new-ticket.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UnacceptedTicketsComponent } from './tickets_components/unaccepted-tickets/unaccepted-tickets.component';
+import { NewNoteComponent } from './tickets_components/new-note/new-note.component';
+import { OverdueTicketsComponent } from './tickets_components/overdue-tickets/overdue-tickets.component';
+import { FindCustomerComponent } from './find-customer/find-customer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { UnacceptedTicketsComponent } from './tickets_components/unaccepted-tick
     ErrorComponent,
     NewTicketComponent,
     LogoutComponent,
-    UnacceptedTicketsComponent
+    UnacceptedTicketsComponent,
+    OverdueTicketsComponent,
+    FindCustomerComponent,
+    
   ],
   imports: [
     BrowserModule,

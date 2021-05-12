@@ -22,20 +22,22 @@ export class TicketComponent implements OnInit {
   ngOnInit(){
     this.username = this.route.snapshot.params['user_id'];
     this.id = this.route.snapshot.params['id'];
-    this.ticketService.retrieveOneTicket(this.username, this.id).subscribe(
-      data =>{
-        this.ticket = data
-      console.log(data)
-      } 
-    )
+    this.getTicket();
   }
   getTicket(){
-    this.ticketService.retrieveOneTicket('karolina',this.id).subscribe(
+    this.ticketService.retrieveOneTicket(this.username ,this.id).subscribe(
       response => {
         console.log(response);
         this.ticket = response;
       }
       )
+  }
+
+  ticketHasNotes(){
+    if (this.ticket.notes.length != 0){
+      return true
+    }
+   
   }
 
   saveTicket(){

@@ -4,10 +4,10 @@
 
       <div class="form-group">
         <label for="dateReceived">Date received 📅</label>
-        <input required="required" #dateReceived="ngModel" [ngModel]="ticket.dateReceived | date: 'yyyy-MM-dd'" (ngModelChange)="ticket.dateReceived = $event" type="date" class="form-control mb-2" name="date-received">  
+        <input required="required" #dateReceived="ngModel" [ngModel]="ticket.dateReceived | date: 'yyyy-MM-dd'" (ngModelChange)="ticket.dateReceived = $event" type="date" class="form-control mb-2 dateReceived" name="date-received">  
         <br>
         <label for="source">Source 💬</label>
-        <select class="form-control mb-2" id="source" [formControl]="source" required="required">
+        <select class="form-control mb-2"  [(ngModel)]="ticket.source" id="source" [formControl]="source" required="required">
           <option [ngValue]="null">Select Source</option>
           <option *ngFor="let source of sources | keyvalue" [ngValue]="source.value">{{source.value}}</option>
         </select>
@@ -19,18 +19,20 @@
         </select>
         <br>
         <label for="contactMethod">Contact Method 📞</label>
-        <select class="form-control" id="contactMethod" #preferredContactMethod [(ngModel)]="topic.preferredContactMethod" [ngModelOptions]="{standalone: true}" required="required">
+        <select class="form-control" id="contactMethod" #preferredContactMethod="ngModel" [(ngModel)]="ticket.preferredContactMethod" [ngModelOptions]="{standalone: true}" required="required">
           <option [ngValue]="null">Select one...</option>
           <option *ngFor="let contactMethod of contactMethods | keyvalue" [ngValue]="contactMethod.value">{{contactMethod.value}}</option>
         </select>
+       
       </div>
  
     </div>
 
     <div class="d-flex align-items-center flex-column">
+      <p *ngIf="customerDetails">Customer: {{customerDetails}}</p>
       <div class="form-group">
-        <label for="notes">Notes:</label>
-        <textarea class="form-control" id="notes" cols="80" rows="5" required="required"></textarea>
+        <label for="details">Details:</label>
+        <textarea class="form-control" id="details" #details="ngModel" [(ngModel)]="ticket.details" [ngModelOptions]="{standalone: true}" required="required" cols="70" rows="8"></textarea>
       </div>
       <div class="form-group">
         <input type="submit" class="btn btn-info" value="Submit">
