@@ -14,13 +14,16 @@ import { Note } from '../tickets/tickets.component';
 export class NewNoteComponent implements OnInit {
   note: Note
   ticket_id: number
-  username: String
+  username: string
+  ticket: any;
+  content: ''
 
   constructor(private route: ActivatedRoute, private ticketService: TicketDataService, private newTicketPage: NewTicketComponent) { }
   ngOnInit() {
     this.ticket_id = this.route.snapshot.params['id'];
     this.username = this.route.snapshot.params['user_id'];
-    this.note = new Note(-1, '', new Date(), this.ticket_id)
+    this.note = new Note(-1, this.username, this.content, new Date(), this.ticket_id)
+
   }
 
   createNote(){

@@ -42,23 +42,27 @@
         
       </div>
     </table>
-    <div *ngIf="ticketHasNotes()"  class="card card-body">
+    <div  class="card card-body">
       <h6 class="card-subtitle text-muted">Recent updates:</h6>
-      <div *ngFor="let note of ticket.notes">
+      <!-- <div *ngFor="let note of ticket.notes">
         <div class="card-body">
-          <!-- Note created , current status-->
+  
           <p class="text-secondary">{{note.date | date}}</p>
-          <!-- Content -->
+         
           <p>{{note.content}}</p>
-          <!-- Author  -->
+        
+          
           <small class="text-secondary text-right w-100">{{note.author}}</small>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>  
 
 <div class="notes mt-2">
-  <!-- <form>
+
+  
+
+  <form>
     <div class="form-group">
       <label for="notes">Add a note:</label>
       <textarea class="form-control" id="notes" cols="75" rows="4"></textarea>
@@ -71,6 +75,5 @@
     <div class="form-group">
       <input type="submit" class="btn btn-info" value="Submit">
     </div>
-  </form> -->
-  <!-- <app-new-note></app-new-note> -->
+  </form>
 </div>

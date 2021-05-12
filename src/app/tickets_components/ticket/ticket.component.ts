@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { TicketDataService } from 'src/app/service/data/ticket-data.service';
 
-import { Ticket } from '../tickets/tickets.component';
+import { Note, Ticket } from '../tickets/tickets.component';
 
 
 @Component({
@@ -13,19 +13,23 @@ import { Ticket } from '../tickets/tickets.component';
 })
 export class TicketComponent implements OnInit {
 
-  id: number
+  ticketId: number
   username: string
   ticket: Ticket
+  note: Note
+  content: ''
 
   constructor(private ticketService: TicketDataService, private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit(){
     this.username = this.route.snapshot.params['user_id'];
-    this.id = this.route.snapshot.params['id'];
+    this.ticketId = this.route.snapshot.params['id'];
     this.getTicket();
+    // this.note = new Note(this.username, this.content, new Date(), this.ticketId)
   }
+
   getTicket(){
-    this.ticketService.retrieveOneTicket(this.username ,this.id).subscribe(
+    this.ticketService.retrieveOneTicket(this.username ,this.ticketId).subscribe(
       response => {
         console.log(response);
         this.ticket = response;
@@ -40,11 +44,16 @@ export class TicketComponent implements OnInit {
    
   }
 
-  saveTicket(){
-    this.ticketService.saveTicket('karolina', this.ticket).subscribe(
-      data => {
-        console.log(data)
-      }
-    )
+  createNote(){
+    this.ticketService.saveNote(this.username, this.ticketId, this.note)
+ 
   }
+
+  // saveTicket(){
+  //   this.ticketService.saveTicket('karolina', this.ticket).subscribe(
+  //     data => {
+  //       console.log(data)
+  //     }
+  //   )
+  // }
 }

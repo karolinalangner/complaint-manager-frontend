@@ -10,6 +10,7 @@ import { TicketsComponent } from './tickets_components/tickets/tickets.component
 import { UnacceptedTicketsComponent } from './tickets_components/unaccepted-tickets/unaccepted-tickets.component';
 import { OverdueTicketsComponent } from './tickets_components/overdue-tickets/overdue-tickets.component';
 import { FindCustomerComponent } from './find-customer/find-customer.component';
+import { NewNoteComponent } from './tickets_components/new-note/new-note.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},

@@ -18,8 +18,20 @@
           <option *ngFor="let topic of topics | keyvalue" [ngValue]="topic.value">{{topic.value}}</option>
         </select>
         <br>
-        <label for="contactMethod">Contact Method 📞</label>
-        <select class="form-control" id="contactMethod" #preferredContactMethod="ngModel" [(ngModel)]="ticket.preferredContactMethod" [ngModelOptions]="{standalone: true}" required="required">
+        <label for="status">Status</label>
+        <select class="form-control mb-2" id="status" #status="ngModel" [(ngModel)]="ticket.status" [ngModelOptions]="{standalone: true}" required="required">
+          <option [ngValue]="null">Change status</option>
+          <option *ngFor="let status of statuses | keyvalue" [ngValue]="status.value">{{status.value}}</option>
+        </select>
+        <br>
+        <label *ngIf="statusIsPending()" for="queue">Send to:</label>
+        <select  *ngIf="statusIsPending()" class="form-control mb-2" id="queue" #queue="ngModel" [(ngModel)]="ticket.queue" [ngModelOptions]="{standalone: true}" required="required">
+          <option [ngValue]="null">Select a queue</option>
+          <option *ngFor="let queue of queues | keyvalue" [ngValue]="queue.value">{{queue.value}}</option>
+        </select>
+        <br>
+        <label *ngIf="statusIsPending()" for="contactMethod">Contact Method </label>
+        <select *ngIf="statusIsPending()" class="form-control" id="contactMethod" #preferredContactMethod="ngModel" [(ngModel)]="ticket.preferredContactMethod" [ngModelOptions]="{standalone: true}" required="required">
           <option [ngValue]="null">Select one...</option>
           <option *ngFor="let contactMethod of contactMethods | keyvalue" [ngValue]="contactMethod.value">{{contactMethod.value}}</option>
         </select>

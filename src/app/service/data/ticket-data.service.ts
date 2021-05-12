@@ -40,7 +40,6 @@ export class TicketDataService {
 
   saveTicket(username, customerId, ticket){
     return this.http.post(`${API_URL}/jpa/${username}/${customerId}/tickets`, ticket);
-
   }
 
   saveNote(username, ticket_id, note){

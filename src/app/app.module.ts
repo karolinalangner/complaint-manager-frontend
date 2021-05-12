@@ -34,6 +34,7 @@ import { FindCustomerComponent } from './find-customer/find-customer.component';
     UnacceptedTicketsComponent,
     OverdueTicketsComponent,
     FindCustomerComponent,
+    NewNoteComponent
     
   ],
   imports: [

@@ -3,18 +3,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TicketDataService } from '../../service/data/ticket-data.service';
 
 export class Note {
-  constructor(public id: number, 
+  constructor(public id: number,
+              public author: string,
               public content: string,
               public date: Date,
               public ticket_id: number
-
               ) { }
 }  
 
 export class Ticket {
     customer: any;
     notes: any;
-    constructor(public id: number, 
+    constructor(
                 public dateReceived: Date,
                 public deadline: Date,
                 public topic: string,

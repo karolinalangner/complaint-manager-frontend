@@ -16,6 +16,8 @@ enum ContactMethods {
 const contactMethods: Array<string> = Object.keys(ContactMethods).filter(key => isNaN(+key));
 const topics: Array<string> = [ 'Enquiry about account', 'Problem logging in', 'Missing funds']
 const sources: Array<string> = [ 'Email', 'Phone', 'Other']
+const statuses: Array<string> = [ 'Pending', 'Solved' ]
+const queues: Array<string> = [ 'Finance', 'Regulatory' ]
 
 @Component({
   selector: 'app-new-ticket',
@@ -27,6 +29,8 @@ export class NewTicketComponent implements OnInit {
   contactMethods = contactMethods;
   topics = topics;
   sources = sources
+  statuses = statuses
+  queues = queues
 
   user_id: '';
   customer_id: number;
@@ -36,7 +40,9 @@ export class NewTicketComponent implements OnInit {
   topic: FormControl
   source: FormControl
   details: FormControl
-  status = "Pending"
+  status: FormControl
+  queue: FormControl
+
   dateReceived= new Date()
   deadline= new Date()
   customerDetails: String
@@ -47,13 +53,17 @@ export class NewTicketComponent implements OnInit {
     preferredContactMethod: [null, [Validators.required]],
     topic: [null, [Validators.required]],
     source: [null, [Validators.required]],
-    details: [null, [Validators.required]]
+    status: [null, [Validators.required]],
+    details: [null, [Validators.required]],
+    queue: [null, [Validators.required]]
     }); 
 
     this.preferredContactMethod = this.form.controls.preferredContactMethod as FormControl;
     this.topic = this.form.controls.topic as FormControl;
     this.source = this.form.controls.source as FormControl;
     this.details = this.form.controls.details as FormControl;
+    this.status = this.form.controls.status as FormControl;
+    this.queue =  this.form.controls.queue as FormControl;
   }
     
   ngOnInit(){
@@ -61,9 +71,8 @@ export class NewTicketComponent implements OnInit {
     this.customer_id = this.route.snapshot.params['customer_id'];
     this.customerDetails = this.route.snapshot.queryParamMap.get('customerDetails');
     console.log("customer id: "+ this.customer_id)
- 
-    this.ticket = new Ticket(-1, this.dateReceived, this.deadline, this.topic.value ,' ', ' ', this.status, ' ');
-    // this.note = new Note(-1, '', new Date(), this.ticket.id)
+    this.ticket = new Ticket( this.dateReceived, this.deadline, this.topic.value ,this.source.value, ' ', this.status.value, ' ');
+    // this.note = new Note('', new Date(), this.ticket.id)
     
   }
 
@@ -73,7 +82,14 @@ export class NewTicketComponent implements OnInit {
     this.deadline.setDate(newDate.getDate() + 3);
     return this.deadline;
 
-}
+  }
+
+  statusIsPending(){
+    if(this.ticket.status=='Pending'){
+      return true;
+    }
+  }
+ 
 
   createTicket(){
     this.deadline = this.calculateDeadline()
