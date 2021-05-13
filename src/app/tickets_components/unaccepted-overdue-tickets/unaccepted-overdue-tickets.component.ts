@@ -4,12 +4,12 @@ import { TicketDataService } from 'src/app/service/data/ticket-data.service';
 import { Ticket } from '../tickets/tickets.component';
 
 @Component({
-  selector: 'app-overdue-tickets',
-  templateUrl: './overdue-tickets.component.html',
-  styleUrls: ['./overdue-tickets.component.css']
+  selector: 'app-unaccepted-overdue-tickets',
+  templateUrl: './unaccepted-overdue-tickets.component.html',
+  styleUrls: ['./unaccepted-overdue-tickets.component.css']
 })
-export class OverdueTicketsComponent implements OnInit {
-  
+export class UnacceptedOverdueTicketsComponent implements OnInit {
+
   tickets: Ticket[]
   username: string
   
@@ -22,8 +22,8 @@ export class OverdueTicketsComponent implements OnInit {
   }
 
   
- getUnacceptedOverdueTickets(){
-    this.ticketService.retrieveUsersOverdueTickets(this.username).subscribe(
+  getUnacceptedOverdueTickets(){
+    this.ticketService.retrieveUnacceptedOverdueTickets(this.username).subscribe(
       response => {
         console.log(response);
         this.tickets = response;

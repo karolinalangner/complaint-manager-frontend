@@ -7,10 +7,8 @@
           <th>ID</th> 
           <th>Topic</th>
           <th>Status</th>
-          <th>Last Update</th>
           <th>Date received</th>
           <th>Deadline</th>
-          <th>Customer owner</th>
           <th>Customer ID</th>
         </tr>
       </thead>
@@ -20,10 +18,8 @@
           <td>{{ticket.id | number}}</td>
           <td>{{ticket.topic}}</td>
           <td>{{ticket.status}}</td>
-          <td></td>
-          <td>{{ticket.dateReceived | date}}</td>
+          <td class="text-danger">{{ticket.dateReceived | date}}</td>
           <td>{{ticket.deadline | date}}</td>
-          <td class="text-center">-</td>
           <td>{{ticket.customer.name}}</td>
       </tr>
       

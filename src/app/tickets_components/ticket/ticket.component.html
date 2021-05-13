@@ -2,19 +2,21 @@
   <div class="d-flex">
     <table class="bg-white table-sm card">
       <div class="card-body">
-        <tr>
+      <h3 class=" mb-4 card-title">#{{ticket.id}}  {{ticket.topic}}</h3>
+      
+        <!-- <tr>
           <th >ID</th>
           <td>{{ticket.id}}</td>
         </tr>
         <tr>
           <th>Topic</th>
           <td>{{ticket.topic}}</td>
-        </tr>
+        </tr> -->
         <tr>
           <th>Status</th>
           <td>{{ticket.status}}</td>
         </tr>
-        <tr>
+        <tr *ngIf="!isStatusPending()">
           <th>Last Update</th>
           <td class="text-secondary"></td>
         </tr>
@@ -26,23 +28,24 @@
           <th>Deadline</th>
           <td>{{ticket.deadline | date}}</td>
         </tr>
-        <tr>
+        <tr *ngIf="!isStatusPending()">
           <th>Customer owner: </th>
-          <td class="text-secondary">ticket.user.name</td>
+          <td class="text-secondary">{{ticket.username}}</td>
         </tr>
         <br>
         <tr><th>Customer:</th></tr>
         <tr><td colspan="3">{{ticket.customer.name}}</td></tr>
         <tr><td colspan="3"> {{ticket.customer.email}}</td></tr>
         <tr><td colspan="3"> {{ticket.customer.phoneNumber}} </td></tr> 
-       
+        <tr><th>Preferred contact method:</th></tr>
+        <tr><td>{{ticket.preferredContactMethod}}</td></tr>
         <br>
         <tr><th>Details:</th></tr>
         <tr><td>{{ticket.details}}</td></tr>
         
       </div>
     </table>
-    <div  class="card card-body">
+    <div  *ngIf="ticketHasNotes()" class="card card-body">
       <h6 class="card-subtitle text-muted">Recent updates:</h6>
       <!-- <div *ngFor="let note of ticket.notes">
         <div class="card-body">

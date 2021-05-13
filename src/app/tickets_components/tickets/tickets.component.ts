@@ -21,7 +21,8 @@ export class Ticket {
                 public source: string,
                 public prefferedContactMethod: string,
                 public status: string,
-                public details: string
+                public details: string,
+                public queue: string
                 ) { }
   }  
 

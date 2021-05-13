@@ -71,7 +71,7 @@ export class NewTicketComponent implements OnInit {
     this.customer_id = this.route.snapshot.params['customer_id'];
     this.customerDetails = this.route.snapshot.queryParamMap.get('customerDetails');
     console.log("customer id: "+ this.customer_id)
-    this.ticket = new Ticket( this.dateReceived, this.deadline, this.topic.value ,this.source.value, ' ', this.status.value, ' ');
+    this.ticket = new Ticket( this.dateReceived, this.deadline, this.topic.value ,this.source.value, ' ', this.status.value, ' ', ' ');
     // this.note = new Note('', new Date(), this.ticket.id)
     
   }

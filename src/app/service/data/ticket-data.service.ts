@@ -14,16 +14,25 @@ export class TicketDataService {
     return this.http.get<Ticket[]>(`${API_URL}/jpa/${username}/tickets`);
   }
 
-  retrieveUnacceptedTickets(username){
-    return this.http.get<Ticket[]>(`${API_URL}/jpa/${username}/tickets/unaccepted`);
+  retrieveUnacceptedOverdueTickets(username){
+    return this.http.get<Ticket[]>(`${API_URL}/jpa/${username}/tickets/unaccepted-overdue`);
   }
 
   retrieveUsersOverdueTickets(username){
     return this.http.get<Ticket[]>(`${API_URL}/jpa/${username}/tickets/overdue`);
   }
 
+  retrieveUnacceptedTickets(username){
+    return this.http.get<Ticket[]>(`${API_URL}/jpa/${username}/tickets/unaccepted`);
+  }
+
+
   retrieveOneTicket(username, id){
     return this.http.get<Ticket>(`${API_URL}/jpa/${username}/tickets/${id}`);
+  }
+
+  countUnacceptedOverdueTickets(username){
+    return this.http.get<Number>(`${API_URL}/jpa/${username}/tickets/unaccepted-overdue/count`);
   }
 
   countUnacceptedTickets(username){

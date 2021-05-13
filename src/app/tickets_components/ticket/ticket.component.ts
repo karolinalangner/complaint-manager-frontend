@@ -37,6 +37,12 @@ export class TicketComponent implements OnInit {
       )
   }
 
+  isStatusPending(){
+    if(this.ticket.status==="Pending"){
+      return true;
+    }
+  }
+
   ticketHasNotes(){
     if (this.ticket.notes.length != 0){
       return true

@@ -8,8 +8,8 @@
 }
 
 .dashboard-card {
-    background: white;
     min-width: 18%;
+    min-height: max-content;
     padding: 15px;
     margin: 2px 5px;
     border: lightgray solid 1px;
@@ -20,9 +20,25 @@
 }
 
 .dashboard-card .title{
-    min-height: 55%;
+    min-height:110px;
+    text-align: center;
+    
+}
+.dashboard-card .title p{
+    margin:0;
+    min-height: 47px;
 }
 
 .dashboard-card .text{
     margin:auto;
+    font-size: 20px;
+    color: black
+}
+
+.red {
+    background-color: rgba(255, 83, 83, 0.103);
+}
+
+.blue {
+    background-color: rgba(71, 187, 255, 0.11);
 }

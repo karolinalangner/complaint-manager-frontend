@@ -19,11 +19,11 @@ export class UnacceptedTicketsComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.route.snapshot.params['user_id'];
-    this.refreshUnacceptedTickets();
+    this.getUnacceptedTickets();
   }
 
   
-  refreshUnacceptedTickets(){
+  getUnacceptedTickets(){
     this.ticketService.retrieveUnacceptedTickets(this.username).subscribe(
       response => {
         console.log(response);

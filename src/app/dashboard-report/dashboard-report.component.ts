@@ -10,6 +10,7 @@ import { TicketDataService } from '../service/data/ticket-data.service';
 export class DashboardReportComponent implements OnInit {
 
   username: string
+  unacceptedOverdue: Number
   unaccepted: Number
   overdue: Number
   userQueue: Number
@@ -18,9 +19,9 @@ export class DashboardReportComponent implements OnInit {
 
   ngOnInit() {
     this.username = sessionStorage.getItem(AUTHENTICATED_USER);
-    this.ticketService.countUnacceptedTickets(this.username).subscribe(
+    this.ticketService.countUnacceptedOverdueTickets(this.username).subscribe(
       data =>{
-        this.unaccepted = data
+        this.unacceptedOverdue = data
         console.log(data)
       }
     )
@@ -33,6 +34,12 @@ export class DashboardReportComponent implements OnInit {
     this.ticketService.countUsersOverdueTickets(this.username).subscribe(
       data =>{
         this.overdue = data
+        console.log(data)
+      }
+    )
+    this.ticketService.countUnacceptedTickets(this.username).subscribe(
+      data =>{
+        this.unaccepted = data
         console.log(data)
       }
     )
