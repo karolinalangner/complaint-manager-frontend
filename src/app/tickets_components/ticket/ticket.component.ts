@@ -17,9 +17,10 @@ export class TicketComponent implements OnInit {
   username: string
   ticket: Ticket
   note: Note
-  content: string
+  content: String
 
   constructor(private ticketService: TicketDataService, private route: ActivatedRoute, private router:Router) { }
+
 
   ngOnInit(){
     this.username = this.route.snapshot.params['user_id'];
@@ -27,7 +28,7 @@ export class TicketComponent implements OnInit {
     this.getTicket();
     this.note = new Note(this.username, this.content, new Date(), this.ticketId)
   }
-
+  
   getTicket(){
     this.ticketService.retrieveOneTicket(this.username ,this.ticketId).subscribe(
       response => {
@@ -50,11 +51,7 @@ export class TicketComponent implements OnInit {
   }
 
   saveNote(){
-    this.ticketService.saveNote(this.username, this.ticketId, this.note).subscribe(
-      data => {
-        console.log(data)
-      }
-    )
+    this.ticketService.saveNote(this.username, this.ticketId, this.note).subscribe();
     this.getTicket();
   }
 }

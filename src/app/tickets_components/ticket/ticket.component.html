@@ -3,13 +3,17 @@
     <table class="bg-white table-sm card">
       <div class="card-body">
       <h3 class=" mb-4 card-title">#{{ticket.id}}  {{ticket.topic}}</h3>
+    
+        <tr><th>Details:</th></tr>
+        <tr><td>{{ticket.details}}</td></tr>
+      <br>
         <tr>
           <th>Status</th>
           <td>{{ticket.status}}</td>
         </tr>
         <tr *ngIf="!isStatusPending()">
           <th>Last Update</th>
-          <td class="text-secondary"></td>
+          <span *ngFor="let note of ticket.notes; last as isLast"><td *ngIf="isLast">{{note.date | date}}</td></span>
         </tr>
         <tr>
           <th>Date received</th>
@@ -30,10 +34,6 @@
         <tr><td colspan="3"> {{ticket.customer.phoneNumber}} </td></tr> 
         <tr><th>Preferred contact method:</th></tr>
         <tr><td>{{ticket.preferredContactMethod}}</td></tr>
-        <br>
-        <tr><th>Details:</th></tr>
-        <tr><td>{{ticket.details}}</td></tr>
-        
       </div>
     </table>
     <div  *ngIf="ticketHasNotes()" class="card card-body">
@@ -58,6 +58,7 @@
 
   <form (ngSubmit)="saveNote()"  #noteForm="ngForm">
     <div class="form-group" >
+      
       <label for="note">Add a note:</label>
       <textarea #content='ngModel' [(ngModel)]="note.content" name="content" type="text"  class="form-control" id="note" cols="75" rows="4"></textarea>
     </div>

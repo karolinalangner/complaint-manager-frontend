@@ -23,6 +23,16 @@ export class Ticket {
                 public details: string,
                 public queue: string
                 ) { }
+
+    lastUpdate(){
+      if (this.notes.length === 0 ){
+        return "-"
+      }
+      else {
+        const lastNote = this.notes[this.notes.length-1].date
+        return lastNote
+      }
+    }
   }  
 
 @Component({
