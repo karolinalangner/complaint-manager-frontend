@@ -1,51 +1,37 @@
-<!-- <div class="card ">
-  <table class="table table-md card-text ">
-    <thead>
-      <tr>
-        <th>Received more than 1 day ago</th>
-        <th>Overdue</th>
-        <th>Tickets in queue</th>
-      </tr> 
-    </thead>
-    <tbody>
-      <tr>
-        <td class="text-danger"></td>  
-        <td><a routerLink="/karolina/tickets"></a></td>
-        <td><a routerLink="/karolina/tickets">23</a></td>
-      </tr> 
-    </tbody>
-  </table>
-</div> -->
-<div class="dashboard-cards my-2">
-  <div class="dashboard-card red">
-    <div class="title">
-      <p><strong>Pending Overdue</strong></p>
-      <small>Tickets that have not been accepted<br> within 24h</small>
+<div class="dashboard-report">
+  <h5>Ticket Status Overview</h5>
+  <div class="dashboard-cards my-2">
+    
+    <div class="dashboard-card red">
+      <div class="title">
+        <p><strong>Pending Acceptence <br> - Overdue</strong></p>
+        <small>Tickets that have not been assigned<br>to a CO within 24h</small>
+      </div>
+      <a class="text" [routerLink]="['..','tickets_pending_overdue']">{{unacceptedOverdue}}</a>
     </div>
-    <a class="text" [routerLink]="['..','tickets_pending_overdue']">{{unacceptedOverdue}}</a>
-  </div>
 
-  <div class="dashboard-card red">
-    <div class="title">
-      <p><strong>Overdue</strong></p>
-      <small>Your tickets that have not been solved<br> before deadline</small>
+    <div class="dashboard-card red">
+      <div class="title">
+        <p><strong>Overdue</strong></p>
+        <small>Your tickets that have not been solved<br> before deadline</small>
+      </div>
+      <a class="text" [routerLink]="['..','tickets_overdue']">{{overdue}}</a>
     </div>
-    <a class="text" [routerLink]="['..','tickets_overdue']">{{overdue}}</a>
-  </div>
+    
+    <div class="dashboard-card blue">
+      <div class="title">
+        <p><strong>Your Tickets</strong></p>
+        <small>Your unsolved tickets</small>
+      </div>
+      <a class="text" [routerLink]="['..','your_tickets']">{{userQueue}}</a>
+    </div>
 
-  <div class="dashboard-card blue">
-    <div class="title">
-      <p><strong>Pending Acceptance</strong></p>
-      <small>Tickets received<br> within last 24h</small>
+    <div class="dashboard-card blue">
+      <div class="title">
+        <p><strong>Pending Acceptance</strong></p>
+        <small>Tickets received<br> within last 24h</small>
+      </div>
+      <a class="text" [routerLink]="['..','tickets_pending']">{{unaccepted}}</a>
     </div>
-    <a class="text" [routerLink]="['..','tickets_pending']">{{unaccepted}}</a>
-  </div>
-
-  <div class="dashboard-card blue">
-    <div class="title">
-      <p><strong>Your tickets</strong></p>
-      <small>Your unsolved tickes</small>
-    </div>
-    <a class="text" [routerLink]="['..','tickets']">{{userQueue}}</a>
   </div>
 </div>

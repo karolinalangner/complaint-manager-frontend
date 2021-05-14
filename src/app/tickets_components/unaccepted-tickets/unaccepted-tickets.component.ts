@@ -32,6 +32,12 @@ export class UnacceptedTicketsComponent implements OnInit {
       )
   }
 
+  ticketsInQueue() {
+    if (this.tickets.length > 0){
+      return true;
+    } 
+  }
+
   lookUpTicket(id){
     console.log("look up works")
     this.router.navigate([`${this.username}/tickets`, id])

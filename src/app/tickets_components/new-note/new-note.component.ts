@@ -22,7 +22,7 @@ export class NewNoteComponent implements OnInit {
   ngOnInit() {
     this.ticket_id = this.route.snapshot.params['id'];
     this.username = this.route.snapshot.params['user_id'];
-    this.note = new Note(-1, this.username, this.content, new Date(), this.ticket_id)
+    this.note = new Note(this.username, this.content, new Date(), this.ticket_id)
 
   }
 

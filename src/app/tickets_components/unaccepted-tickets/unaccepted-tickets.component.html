@@ -1,6 +1,6 @@
-<div class="ticket-list card-body">
+<div *ngIf="ticketsInQueue() else elseBlock"  class="ticket-list card-body">
   <div class="card-title">
-    <h6 class="btn card-subtitle text-muted" >Tickets needing accepting</h6>
+    <h6 class="btn card-subtitle text-muted" >Tickets pending acceptance </h6>
     <table class="table my-4 table-hover">
       <thead>
         <tr>
@@ -26,8 +26,8 @@
           <td class="text-center">-</td>
           <td>{{ticket.customer.name}}</td>
       </tr>
-      
       </tbody>
     </table>
   </div>
 </div>
+<ng-template #elseBlock><h6 class="text-center">You have no tickets pending acceptance! </h6></ng-template>

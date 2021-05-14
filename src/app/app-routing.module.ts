@@ -13,6 +13,7 @@ import { FindCustomerComponent } from './find-customer/find-customer.component';
 import { NewNoteComponent } from './tickets_components/new-note/new-note.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { UnacceptedOverdueTicketsComponent } from './tickets_components/unaccepted-overdue-tickets/unaccepted-overdue-tickets.component';
+import { AllTicketsComponent } from './tickets_components/all-tickets/all-tickets.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: ':user_id/statistics', component: StatisticsComponent},
   {path: ':user_id/new_ticket', component: FindCustomerComponent},
   {path: ':user_id/new_ticket/:customer_id', component: NewTicketComponent},
-  {path: ':user_id/tickets', component: TicketsComponent},
+  {path: ':user_id/tickets', component: AllTicketsComponent},
+  {path: ':user_id/your_tickets', component: TicketsComponent},
   {path: ':user_id/tickets/:id', component: TicketComponent},
   {path: ':user_id/tickets_pending', component: UnacceptedTicketsComponent},
   {path: ':user_id/tickets_pending_overdue', component: UnacceptedOverdueTicketsComponent},

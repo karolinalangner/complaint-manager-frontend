@@ -17,7 +17,7 @@ export class TicketComponent implements OnInit {
   username: string
   ticket: Ticket
   note: Note
-  content: ''
+  content: string
 
   constructor(private ticketService: TicketDataService, private route: ActivatedRoute, private router:Router) { }
 
@@ -25,7 +25,7 @@ export class TicketComponent implements OnInit {
     this.username = this.route.snapshot.params['user_id'];
     this.ticketId = this.route.snapshot.params['id'];
     this.getTicket();
-    // this.note = new Note(this.username, this.content, new Date(), this.ticketId)
+    this.note = new Note(this.username, this.content, new Date(), this.ticketId)
   }
 
   getTicket(){
@@ -47,19 +47,14 @@ export class TicketComponent implements OnInit {
     if (this.ticket.notes.length != 0){
       return true
     }
-   
   }
 
-  createNote(){
-    this.ticketService.saveNote(this.username, this.ticketId, this.note)
- 
+  saveNote(){
+    this.ticketService.saveNote(this.username, this.ticketId, this.note).subscribe(
+      data => {
+        console.log(data)
+      }
+    )
+    this.getTicket();
   }
-
-  // saveTicket(){
-  //   this.ticketService.saveTicket('karolina', this.ticket).subscribe(
-  //     data => {
-  //       console.log(data)
-  //     }
-  //   )
-  // }
 }

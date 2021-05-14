@@ -1,6 +1,6 @@
-<div class="ticket-list card-body">
+<div *ngIf="ticketsInQueue() else elseBlock" class="ticket-list card-body">
   <div class="card-title">
-    <h6 class="btn card-subtitle text-muted" >Overdue Tickets</h6>
+    <h6 class="btn card-subtitle text-muted" > Your Unsolved Tickets</h6>
     <table class="table my-4 table-hover">
       <thead>
         <tr>
@@ -31,3 +31,4 @@
     </table>
   </div>
 </div>
+<ng-template #elseBlock><h6 class="text-center">You have no overdue tickets!</h6></ng-template>

@@ -35,6 +35,11 @@ export class OverdueTicketsComponent implements OnInit {
     console.log("look up works")
     this.router.navigate([`${this.username}/tickets`, id])
   }
-
+  
+  ticketsInQueue() {
+    if (this.tickets.length > 0){
+      return true;
+    } 
+  }
 
 }

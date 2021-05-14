@@ -3,9 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TicketDataService } from '../../service/data/ticket-data.service';
 
 export class Note {
-  constructor(public id: number,
-              public author: string,
-              public content: string,
+  constructor( public author: string,
+              public content: any,
               public date: Date,
               public ticket_id: number
               ) { }
@@ -51,6 +50,12 @@ username: string
         this.tickets = response;
       }
       )
+  }
+
+  ticketsInQueue() {
+    if (this.tickets.length > 0){
+      return true;
+    } 
   }
 
   lookUpTicket(id){

@@ -48,12 +48,14 @@ export class TicketDataService {
   }
 
   saveTicket(username, customerId, ticket){
-    return this.http.post(`${API_URL}/jpa/${username}/${customerId}/tickets`, ticket);
+    return this.http.post(`${API_URL}/jpa/${username}/${customerId}/tickets/add`, ticket);
   }
 
   saveNote(username, ticket_id, note){
     return this.http.post(`${API_URL}/jpa/${username}/tickets/${ticket_id}/notes`, note);
   }
+
+
 
 
 

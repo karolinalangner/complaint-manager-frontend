@@ -32,6 +32,13 @@ export class StatisticsService {
     return this.http.get<Number>(`${API_URL}/jpa/tickets/count/by_post/30days`);
   }
 
+  TicketsWithin30Days(){
+    return this.http.get<Number>(`${API_URL}/jpa/tickets/count/30days`);
+  }
+
+  TicketsWithin24Hours(){
+  return this.http.get<Number>(`${API_URL}/jpa/tickets/count/24hours`);
+  }
   
 
 

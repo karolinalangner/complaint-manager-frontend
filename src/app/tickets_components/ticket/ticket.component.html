@@ -3,15 +3,6 @@
     <table class="bg-white table-sm card">
       <div class="card-body">
       <h3 class=" mb-4 card-title">#{{ticket.id}}  {{ticket.topic}}</h3>
-      
-        <!-- <tr>
-          <th >ID</th>
-          <td>{{ticket.id}}</td>
-        </tr>
-        <tr>
-          <th>Topic</th>
-          <td>{{ticket.topic}}</td>
-        </tr> -->
         <tr>
           <th>Status</th>
           <td>{{ticket.status}}</td>
@@ -47,7 +38,7 @@
     </table>
     <div  *ngIf="ticketHasNotes()" class="card card-body">
       <h6 class="card-subtitle text-muted">Recent updates:</h6>
-      <!-- <div *ngFor="let note of ticket.notes">
+      <div *ngFor="let note of ticket.notes">
         <div class="card-body">
   
           <p class="text-secondary">{{note.date | date}}</p>
@@ -55,9 +46,9 @@
           <p>{{note.content}}</p>
         
           
-          <small class="text-secondary text-right w-100">{{note.author}}</small>
+          <small class="text-secondary text-right w-100">Author: {{note.author}}</small>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>  
 
@@ -65,15 +56,10 @@
 
   
 
-  <form>
-    <div class="form-group">
-      <label for="notes">Add a note:</label>
-      <textarea class="form-control" id="notes" cols="75" rows="4"></textarea>
-      Status: 
-      <select class="form-control">
-        <option>Unsolved</option>
-        <option>Solved</option>
-      </select>
+  <form (ngSubmit)="saveNote()"  #noteForm="ngForm">
+    <div class="form-group" >
+      <label for="note">Add a note:</label>
+      <textarea #content='ngModel' [(ngModel)]="note.content" name="content" type="text"  class="form-control" id="note" cols="75" rows="4"></textarea>
     </div>
     <div class="form-group">
       <input type="submit" class="btn btn-info" value="Submit">

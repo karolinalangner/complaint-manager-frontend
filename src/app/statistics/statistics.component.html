@@ -1,6 +1,6 @@
 
 <div class="my-2 stats-category">
-  <h5>Source</h5>
+  <h5>Statistics by Source</h5>
   <div class="stats-cards">
     <div class="stats-card">
       <div class="card-head">
@@ -37,38 +37,21 @@
 </div>
 
 <div class="my-2 stats-category">
-  <h5>Source</h5>
+  <h5>Statistics by Time</h5>
   <div class="stats-cards">
     <div class="stats-card">
       <div class="card-head">
-        <h6>Tickets received by Email</h6>
+        <h6>Tickets received <br> within last 24h</h6>
       </div>
-      <p class="title">All time</p>
-      <p class="">{{byEmailAll}}</p>
-      <p class="title">Last 30 days</p>
-      <p class="">{{byEmail30Days}}</p>
-      <p></p>
+      <p class="mt-2">{{within24Hours}}</p>
+   
     </div>
 
     <div class="stats-card">
       <div class="card-head">
-        <h6>Tickets received by Phone</h6>
+        <h6>Tickets received <br> within last 30 days</h6>
       </div>
-      <p class="title">All time</p>
-      <p class="">{{byPhoneAll}}</p>
-      <p class="title">Last 30 days</p>
-      <p class="">{{byPhone30Days}}</p>
-      <p></p>
+      <p class="mt-2">{{within30Days}}</p>
     </div>
 
-    <div class="stats-card">
-      <div class="card-head">
-        <h6>Tickets received by Post</h6>
-      </div>
-      <p class="title">All time</p>
-      <p class="">{{byPostAll}}</p>
-      <p class="title">Last 30 days</p>
-      <p class="">{{byPost30Days}}</p>
-    </div>
-  </div>
 </div>

@@ -14,7 +14,7 @@ enum ContactMethods {
 }
 
 const contactMethods: Array<string> = Object.keys(ContactMethods).filter(key => isNaN(+key));
-const topics: Array<string> = [ 'Enquiry about account', 'Problem logging in', 'Missing funds']
+const topics: Array<string> = [ 'Complaint about additional charges', 'Problem logging into account', 'Missing funds', 'Complaint about customer service']
 const sources: Array<string> = [ 'Email', 'Phone', 'Other']
 const statuses: Array<string> = [ 'Pending', 'Solved' ]
 const queues: Array<string> = [ 'Finance', 'Regulatory' ]
@@ -70,7 +70,6 @@ export class NewTicketComponent implements OnInit {
     this.user_id = this.route.snapshot.params['user_id'];
     this.customer_id = this.route.snapshot.params['customer_id'];
     this.customerDetails = this.route.snapshot.queryParamMap.get('customerDetails');
-    console.log("customer id: "+ this.customer_id)
     this.ticket = new Ticket( this.dateReceived, this.deadline, this.topic.value ,this.source.value, ' ', this.status.value, ' ', ' ');
     // this.note = new Note('', new Date(), this.ticket.id)
     

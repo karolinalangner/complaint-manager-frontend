@@ -1,15 +1,5 @@
-<div class="ticket-list card-body">    
-  <h6 class="btn card-subtitle text-muted" routerLink="/{{username}}/tickets">Your Tickets</h6>
-
-  <!-- <div class="card-title">
-    <small><a href="#" class="text-secondary"> See Unsolved »</a></small>
-    <small><a href="#" class="text-secondary"> See Solved » </a></small>
-    <small><a href="#" class="text-secondary"> See all » </a></small><br>
-    <button class="btn btn-info" routerLink="../new_ticket/">Create a ticket</button>
-  </div> -->
-    <!-- <div class="alert alert-success my-4" *ngIf="message">{{message}}</div> -->
-    <!-- <div class="alert alert-success" *ngFor = "let data of datas">{{data[message]}}></div> -->
-    <!-- <table *ngIf="haveTickets() else elseBlock" class="table my-4"> -->
+<div *ngIf="ticketsInQueue() else elseBlock" class="ticket-list card-body">    
+  <h6 class="btn card-subtitle text-muted" routerLink="/{{username}}/your_tickets">Your Tickets</h6>
     <table class="table my-4 table-hover ">
       <thead>
         <tr>
@@ -33,18 +23,8 @@
         <td>{{ticket.deadline | date}}</td>
         <td>{{ticket.username}}</td>
         <td>{{ticket.customer.name}}</td>
-       </tr>
-      
+       </tr>    
       </tbody>
-      <!-- <tbody class="my-4">
-        <tr *ngFor="let ticket of tickets">
-          <td>{{ticket.id}}</td>
-          <td>{{ticket.targetDate | date}}</td>
-          <td *ngIf="ticket.solved else elseBlock">✔</td>
-          <ng-template #elseBlock><td>❌</td></ng-template>
-        </tr>
-      </tbody>  -->
     </table>
-  <!-- <ng-template #elseBlock><h4 class="text-center my-4"No tickets</h4></ng-template>
-  <button (click)="addTodo()" class="btn btn-warning my-4 mx-auto">Add a Todo</button> -->
 </div>
+<ng-template #elseBlock><h6 class="text-center">You have no tickets! </h6></ng-template>

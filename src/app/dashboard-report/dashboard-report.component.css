@@ -1,10 +1,18 @@
-.dashboard-cards{
-    display:flex;
-    justify-content: center;
+.dashboard-report{
     padding: 15px;
     background: white;
     border: lightgray solid 1px;
     border-radius: 4px;
+    text-align: center;
+}
+
+.dashboard-report h5 {
+    margin: 14px 0;
+}
+.dashboard-cards{
+    display:flex;
+    justify-content: center;
+
 }
 
 .dashboard-card {
@@ -32,7 +40,7 @@
 .dashboard-card .text{
     margin:auto;
     font-size: 20px;
-    color: black
+    text-decoration: underline;
 }
 
 .red {

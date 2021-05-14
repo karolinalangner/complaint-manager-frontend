@@ -1,9 +1,9 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div>
-      <a  routerLink="{{username}}/dashboard" class="navbar-brand ">Customer Complaint Manager</a>
+      <a  routerLink="{{username}}/dashboard"class="navbar-brand ">Customer Complaint Manager</a>
     </div>
-    <ul class="navbar-nav">
+    <ul *ngIf="authenticationService.isUserLoggedIn()" class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link text-white mx-2 btn btn-secondary" routerLink="{{username}}/dashboard">Dashboard </a>
       </li>
@@ -15,8 +15,8 @@
       </li>
     </ul>
       <ul class="navbar-nav navbar-collapse justify-content-end">
-         <li class="nav-item">
-          <a class="nav-link text-white mx-2 btn btn-secondary mr-4" routerLink="/{{username}}/new_ticket/">New Ticket </a>
+         <li class="nav-item" >
+          <a *ngIf="canCreateTicket() &&authenticationService.isUserLoggedIn() " class="nav-link text-white mx-2 btn btn-secondary mr-4" routerLink="/{{username}}/new_ticket/">New Ticket </a>
         </li>
         <li>
             <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" routerLink="/login">Login</a>

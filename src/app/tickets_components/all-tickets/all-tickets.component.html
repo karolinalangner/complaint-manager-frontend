@@ -1,0 +1,21 @@
+<div class="card card-body queue-list">
+  <h5>Go to queue:</h5>
+  <ul class="list-group w-35 m-4">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a class="text" [routerLink]="['..','tickets_overdue']">Overdue</a>
+      <span class="badge badge-primary badge-pill">{{overdue}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">  
+      <a class="text" [routerLink]="['..','tickets_pending_overdue']">Pending Acceptence - Overdue</a>
+      <span class="badge badge-primary badge-pill">{{unacceptedOverdue}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a class="text" [routerLink]="['..','your_tickets']">Your Tickets</a>
+      <span class="badge badge-primary badge-pill">{{userQueue}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a class="text" [routerLink]="['..','tickets_pending']">Pending Acceptance</a>
+      <span class="badge badge-primary badge-pill">{{unaccepted}}</span>
+    </li>
+  </ul>
+</div>

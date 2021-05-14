@@ -1,37 +1,14 @@
 <div class="dashboard">
   <div class="hello my-4">
-    <h4>Hello, Karolina!</h4>
+    <h4>Hello, {{user.firstName}}!</h4>
   </div>
-  <div class="dashboard-report m-2 ">
-    
+  <div class="dashboard-report m-2 "> 
     <app-dashboard-report></app-dashboard-report>
-  <!-- </div>
-  <div class="notifications card"> -->
-    <!-- <div class="card-body">
-      <div class="card-title">
-        <p><strong>Your notifications </strong></p>
-        <small><a href="#" class="text-secondary"> See all »</a></small>
-      </div>
-      <div class="card-text">
-        <ul class="list-group">
-          <li class="list-group-item bg-light">New update on <u>ticket#123 - new note</u> <a href="#"><small class="text-secondary"> Mark as seen</small></a></li>
-          <li class="list-group-item bg-light">New update on <u>ticket#123 - status changed</u> <a href="#"><small class="text-secondary"> Mark as seen</small></a></li>
-        </ul>
-      </div>
-    </div> -->
-    <!-- button changes notification status  -->
   </div>
-  <div class="ticket-info">
-    <!-- Ticket info component - take data from DB (e.g. show tickets where user is the owner, where *pending, *urgent *)-->
-  </div>
-  
   <div class="tickets card m-2">
-      <app-unaccepted-tickets></app-unaccepted-tickets>
-      <app-tickets></app-tickets>
-  </div>
-
-  <div class="statistics">
-    
+  <h5>Tickets Requiring Urgent Action</h5>
+      <app-unaccepted-overdue-tickets></app-unaccepted-overdue-tickets>
+      <app-overdue-tickets></app-overdue-tickets>
   </div>
 
 </div>
