@@ -51,6 +51,11 @@ export class TicketDataService {
     return this.http.post(`${API_URL}/jpa/${username}/${customerId}/tickets/add`, ticket);
   }
 
+  updateTicket(username, ticketId, ticket){
+    return this.http.put(`${API_URL}/jpa/${username}/tickets/${ticketId}`, ticket);
+    
+  }
+
   saveNote(username, ticket_id, note){
     return this.http.post(`${API_URL}/jpa/${username}/tickets/${ticket_id}/notes`, note);
   }

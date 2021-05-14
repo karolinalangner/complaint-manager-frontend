@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TicketDataService } from 'src/app/service/data/ticket-data.service';
 
@@ -52,6 +51,16 @@ export class TicketComponent implements OnInit {
 
   saveNote(){
     this.ticketService.saveNote(this.username, this.ticketId, this.note).subscribe();
-    this.getTicket();
+    
+  }
+
+  updateTicket(){
+    this.ticketService.updateTicket(this.username, this.ticketId, this.ticket).subscribe();
+  }
+
+  saveNoteAndUpdateTicket(){
+    this.updateTicket()
+    this.saveNote()
+    this.getTicket()
   }
 }

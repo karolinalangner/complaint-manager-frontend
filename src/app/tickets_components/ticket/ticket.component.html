@@ -3,10 +3,10 @@
     <table class="bg-white table-sm card">
       <div class="card-body">
       <h3 class=" mb-4 card-title">#{{ticket.id}}  {{ticket.topic}}</h3>
-    
+      <div class="my-2">
         <tr><th>Details:</th></tr>
         <tr><td>{{ticket.details}}</td></tr>
-      <br>
+      </div>
         <tr>
           <th>Status</th>
           <td>{{ticket.status}}</td>
@@ -36,29 +36,38 @@
         <tr><td>{{ticket.preferredContactMethod}}</td></tr>
       </div>
     </table>
-    <div  *ngIf="ticketHasNotes()" class="card card-body">
-      <h6 class="card-subtitle text-muted">Recent updates:</h6>
+    <div  *ngIf="ticketHasNotes() else elseBlock" class="card card-body">
+      <h6 class="card-subtitle my-3">Recent updates:</h6>
       <div *ngFor="let note of ticket.notes">
-        <div class="card-body">
-  
-          <p class="text-secondary">{{note.date | date}}</p>
-         
+        <div>
+          <div class="d-flex">
+              <p class="text-secondary">{{note.date | date}}</p>
+              <p class=" text-right">, {{note.author}}</p>
+          </div>  
           <p>{{note.content}}</p>
-        
-          
-          <small class="text-secondary text-right w-100">Author: {{note.author}}</small>
         </div>
       </div>
     </div>
+    <ng-template #elseBlock>
+    <div class="card card-body">
+      <h6 class="text-center">No updates yet</h6>
+    </div>
+  </ng-template>
   </div>  
 
-<div class="notes mt-2">
-
-  
-
-  <form (ngSubmit)="saveNote()"  #noteForm="ngForm">
+<div class="m-2">
+  <form  #ticketForm="ngForm">
     <div class="form-group" >
-      
+      <label for="status">Change status:</label>
+      <select class="form-control mb-2" id="status" #status='ngModel' [(ngModel)]="ticket.status" name="status">
+        <option [ngValue]="Unsolved">Accepted/Unsolved</option>
+        <option [ngValue]="Solved">Solved</option>
+      </select>
+    </div>
+  </form>
+
+  <form  class="mt-2" (ngSubmit)="saveNoteAndUpdateTicket(); this.getTicket()"  #noteForm="ngForm">
+    <div class="form-group" >
       <label for="note">Add a note:</label>
       <textarea #content='ngModel' [(ngModel)]="note.content" name="content" type="text"  class="form-control" id="note" cols="75" rows="4"></textarea>
     </div>

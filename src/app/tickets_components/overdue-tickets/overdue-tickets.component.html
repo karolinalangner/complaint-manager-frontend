@@ -7,7 +7,6 @@
           <th>ID</th> 
           <th>Topic</th>
           <th>Status</th>
-          <th>Last Update</th>
           <th>Date received</th>
           <th>Deadline</th>
           <th>Customer owner</th>
@@ -20,7 +19,6 @@
           <td>{{ticket.id | number}}</td>
           <td>{{ticket.topic}}</td>
           <td>{{ticket.status}}</td>
-          <span *ngFor="let note of ticket.notes; last as isLast"><td *ngIf="isLast">{{note.date | date}}</td></span>
           <td>{{ticket.dateReceived | date}}</td>
           <td class="text-danger">{{ticket.deadline | date}}</td>
           <td>{{ticket.username}}</td>
